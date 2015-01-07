@@ -1,0 +1,144 @@
+<html>
+<meta charset="UTF-8">
+<head><title>test js</title></head>
+
+<script>
+
+var d = new Date();
+
+var d = new Date();   
+     var year = d.getFullYear();   
+     var month = d.getMonth()+1;   
+     var date = d.getDate();   
+     var day = d.getDay();   
+     var hours = d.getHours();   
+     var minutes = d.getMinutes();   
+     var seconds = d.getSeconds();   
+     var ms = d.getMilliseconds(); 
+
+document.write(year+"&nbsp;");
+document.write(month+"&nbsp;");
+document.write(date+"&nbsp;");
+document.write(day+"&nbsp;");
+document.write(hours+"&nbsp;");
+document.write(minutes+"&nbsp;");
+document.write(seconds+"&nbsp;");
+document.write(ms+"&nbsp;");
+
+/*
+创建一个时间，参数形式有以下5种： 
+
+1）new Date("month dd,yyyy hh:mm:ss"); 
+2）new Date("month dd,yyyy"); 
+3）new Date(yyyy,mth,dd,hh,mm,ss); 
+4）new Date(yyyy,mth,dd); 
+5）new Date(ms); 
+
+month:用英文 表示月份名称，从January到December 
+mth:用整数表示月份，从（１月）到１１（１２月） 
+dd:表示一个 月中的第几天，从1到31 
+yyyy:四位数表示的年份 
+hh:小时数，从0（午夜）到23（晚11点） 
+mm: 分钟数，从0到59的整数 
+ss:秒数，从0到59的整数 
+ms:毫秒数，为大于等于0的整数 
+
+一到十二月分别是：
+一月：January 
+二月：February
+三月：March
+四月：April
+五月：May 
+六月：June 
+七月：July
+八月：August 
+九月：September 
+十月：October 
+十一月：November
+十二月：December
+
+*/
+document.write("<br/>" + new Date("September 02,2014 00:00:00"));
+
+// document.write(Date.parse())
+/*
+时间比较方法
+
+a比b大，返回 1
+a等于b，返回 0
+a比b小，返回 -1
+*/
+function comptime(a, b) {
+
+
+
+    var beginTime = "2009-09-21 00:00:00";
+    var endTime = "2009-09-21 00:00:01";
+    var beginTimes = beginTime.substring(0, 10).split('-');
+    var endTimes = endTime.substring(0, 10).split('-');
+
+    beginTime = beginTimes[1] + '-' + beginTimes[2] + '-' + beginTimes[0] + ' ' + beginTime.substring(10, 19);
+    endTime = endTimes[1] + '-' + endTimes[2] + '-' + endTimes[0] + ' ' + endTime.substring(10, 19);
+
+    alert(beginTime + "aaa" + endTime);
+    alert(Date.parse(endTime));
+    alert(Date.parse(beginTime));
+    var a = (Date.parse(endTime) - Date.parse(beginTime)) / 3600 / 1000;
+    if (a < 0) {
+        alert("endTime小!");
+    } else if (a > 0) {
+        alert("endTime大!");
+    } else if (a == 0) {
+        alert("时间相等!");
+    } else {
+        return 'exception';
+    }
+}
+
+// comptime();
+
+
+//把一段时间按小时分片
+//startTime    开始时间的毫秒数
+//endTime      结束时间段毫秒数
+function TimeSliceForHour(startTime, endTime) {
+
+    var startYear1970 = new Date("January 01,1970").getTime();
+	var timeSlices = new Array();
+    var startAndEnd = new Array();
+
+
+
+    //计算有多少天
+    var countDay = (endTime - startTime) / oneDay;
+    document.write("<br/>一共多少天："+countDay);
+}
+
+
+var oneDay = 1000*60*60*24;
+var now = new Date();
+document.write("</br>今天："+now);
+var yesterDay = new Date(now.getTime()-oneDay);
+document.write("</br>昨天："+yesterDay);
+TimeSliceForHour(yesterDay.getTime(), now.getTime());
+
+
+var arr = new Array();
+arr[arr.length] = 1;
+arr[arr.length] = 2;
+document.write("</br>"+arr.length)
+
+
+
+var obj = {};
+obj["nimei"] = "haha";
+obj["fuke"] = "you";
+for(var i in obj){
+    alert(i);
+}
+
+</script>
+
+<body>
+</body>
+</html>
